@@ -1,0 +1,26 @@
+{
+  "coverageThreshold": {
+    "global": {
+      "statements": 1,
+      "branches": 1,
+      "functions": 1,
+      "lines": 1
+    }
+  },
+  "testPathIgnorePatterns": [
+    "/node_modules/"
+  ],
+  "collectCoverageFrom": [
+    "src/**/*.js"
+  ],
+  "coveragePathIgnorePatterns": [
+    "/test/",
+    "/node_modules/"
+  ],
+  "testEnvironment": "node",
+  "testRegex": "test/.*\\.test\\.js$",
+  "moduleFileExtensions": [
+    "js",
+    "json"
+  ]
+}
