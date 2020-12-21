@@ -8,7 +8,6 @@ WORKDIR /server
 COPY package.json ./
 
 # install package.json modules in container
-# install nodemon for changes on the fly
 RUN npm install
 
 # copy everything to container /app
