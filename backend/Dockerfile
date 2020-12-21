@@ -5,14 +5,14 @@ FROM node:13.12.0-alpine
 WORKDIR /server 
 
 # copy package.json to the container
-COPY package.json /server 
+COPY package.json ./
 
 # install package.json modules in container
 # install nodemon for changes on the fly
 RUN npm install
 
 # copy everything to container /app
-COPY . /server 
+COPY . ./
 
 # expose port 3001 to mount it to another port in local machine 
 EXPOSE 3001 

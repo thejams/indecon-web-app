@@ -1,20 +1,23 @@
-# pull a node image from docker hub
+# pull official base image
 FROM node:13.12.0-alpine
 
-# set the working dir to /app
-WORKDIR /frontend 
+# set working directory
+WORKDIR /app
 
-# copy package.json to the container
-COPY package.json /frontend 
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-# install package.json modules in container
-RUN npm install
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
 
-# copy everything to container /app
-COPY . /frontend 
+# add app
+COPY . ./
 
 # expose port 3000 to mount it to another port in local machine 
 EXPOSE 3000 
 
-# start server inside container
-CMD [ "npm", "start" ] 
+# start app
+CMD ["npm", "start"]
