@@ -3,3 +3,7 @@ backend/yarn.lock
 backend/package-lock.json
 
 frontend/node_modules/
+frontend/yarn.lock
+frontend/yarn-error.log
+frontend/package-lock.json
+frontend/.eslintcache

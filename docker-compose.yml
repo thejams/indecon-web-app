@@ -1,0 +1,26 @@
+# docker-compose.yml
+
+version: "3.2"
+services:
+  backend:
+    build: ./backend
+    tty: true
+    ports:
+      - "3001:3001"
+    volumes:
+      - "./backend:/backend"
+
+  frontend:
+    build: ./frontend
+    tty: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend:/frontend"
+    links:
+      - backend
+
+# Host volumes used to store code.
+volumes:
+  backend:
+  frontend:

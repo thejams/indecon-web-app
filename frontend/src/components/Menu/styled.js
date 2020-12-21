@@ -19,6 +19,7 @@ export const MenuOptionContainer = styled.div`
   border-radius: 3px;
   padding: 20px 10px;
   margin-bottom: 20px;
+  cursor: pointer;
 
   @media (max-width: 1024px) {
     width: 100%;

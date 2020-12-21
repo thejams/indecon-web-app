@@ -1,9 +1,9 @@
-import Menu from '../src/components/Menu'
+import Routes from './Routes'
 
 function App() {
   return (
     <div>
-      <Menu/>
+      <Routes/>
     </div>
   );
 }

@@ -1,17 +1,16 @@
-
-const axios = require('axios')
-const axiosRetry = require('axios-retry')
+import axios from 'axios'
+import axiosRetry from 'axios-retry'
 
 const retryConfig = {
   retries: 2,
   shouldResetTimeout: true,
-  retryCondition: () => true
+  retryCondition: () => true,
 }
 
-const baseURL = "https://indecon.online/"
+const baseURL = "http://localhost:3001/"
 
-class IdeconApiClient {
-  
+export default class ClientAPI {
+
   apiClientInstance() {
     const apiInstance = axios.create({
       baseURL: baseURL,
@@ -21,11 +20,11 @@ class IdeconApiClient {
     return apiInstance
   }
 
-  getLatest() {
+  getLatestElements() {
     return new Promise((resolve, reject) => {
       const client = this.apiClientInstance()
       client.request({
-        url: 'last',
+        url: 'idecon/',
         method: 'get'
       }).then(response => {
         resolve(response.data)
@@ -39,7 +38,7 @@ class IdeconApiClient {
     return new Promise((resolve, reject) => {
       const client = this.apiClientInstance()
       client.request({
-        url: `values/${key}`,
+        url: `idecon/${key}`,
         method: 'get'
       }).then(response => {
         resolve(response.data)
@@ -48,12 +47,12 @@ class IdeconApiClient {
       })
     })
   }
-  
+
   getElementByDate(key, date) {
     return new Promise((resolve, reject) => {
       const client = this.apiClientInstance()
       client.request({
-        url: `date/${key}/${date}`,
+        url: `idecon/${key}/${date}`,
         method: 'get'
       }).then(response => {
         resolve(response.data)
@@ -63,5 +62,3 @@ class IdeconApiClient {
     })
   }
 }
-
-module.exports = IdeconApiClient

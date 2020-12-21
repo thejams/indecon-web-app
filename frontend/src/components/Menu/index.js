@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
+import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHistory, faMoneyBillWave, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import { MenuContainer, MenuOptionContainer, Title, Subtitle } from './styled'
 
 class Menu extends Component {
 
+  goToLatest = () => {
+    const { history } = this.props
+    history.push("/latest");
+  }
+
+  goToElement = () => {
+    const { history } = this.props
+    history.push("/element");
+  }
+
   render() {
-    
     return (
       <section style={{padding:'30px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Title fontSize="30px" marginBottom="20px">
@@ -17,13 +27,13 @@ class Menu extends Component {
         </Subtitle>
         <MenuContainer>
           
-          <MenuOptionContainer>
+          <MenuOptionContainer onClick={() => {this.goToLatest()}}>
             <FontAwesomeIcon style={{marginBottom: "20px", fontSize: "100px", color: 'tomato'}} icon={faHistory} />
             <Title>Latest</Title>
             <Subtitle>Verifica los últimos valores en este instante de todos los elementos.</Subtitle>
           </MenuOptionContainer>
           
-          <MenuOptionContainer>
+          <MenuOptionContainer onClick={() => {this.goToElement()}}>
             <FontAwesomeIcon style={{marginBottom: "20px", fontSize: "100px", color: 'darkgreen'}} icon={faMoneyBillWave} />
             <Title>1 Elemento</Title>
             <Subtitle>Verifica todos los valores de un elemento particular.</Subtitle>
@@ -41,4 +51,4 @@ class Menu extends Component {
   }
 }
 
-export default Menu
+export default withRouter(Menu)

@@ -1,7 +1,7 @@
 {
-  "name": "economic-indicator-backend",
+  "name": "indecon-web-app-backend",
   "version": "1.0.0",
-  "description": "Backend for the economic-indicator app, using Koa as a Node JS framework.",
+  "description": "Backend for the indecon-web app, using Koa as a Node JS framework.",
   "main": "index.js",
   "scripts": {
     "start": "node src/index",
