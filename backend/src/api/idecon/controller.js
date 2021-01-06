@@ -23,7 +23,7 @@ exports.getElement = async(key) => {
   }
 }
 
-exports.getElementByDate = async(date, key) => {
+exports.getElementByDate = async(key, date) => {
   try {
     if (!key || !date) {
       throw new Error('Key and date params are required')

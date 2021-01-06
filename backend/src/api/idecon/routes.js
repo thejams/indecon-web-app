@@ -20,7 +20,7 @@ router.get('/:key', async ctx => {
 
 router.get('/:key/:date', async ctx => {
   try {
-    const { date, key } = ctx.params
+    const { key, date } = ctx.params
     if (!date || !key) {
       ctx.throw(400, 'date and key param are required')
     } else {
