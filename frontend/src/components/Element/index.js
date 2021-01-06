@@ -21,8 +21,16 @@ class Element extends Component {
 
   handleSubmit() {
     const {query} = this.state
+    const urlParams = new URLSearchParams(window.location.search);
+    const date = urlParams.get('date') || null
+
     this.setState({ loading: true }, async ()=> {
-      const element = await this.clientAPI.getElement(query)
+      let element
+      if (date) {
+        element = await this.clientAPI.getElementByDate(query, date)
+      } else {
+        element = await this.clientAPI.getElement(query)
+      }
       this.setState({ element: element, loading: false })
     })
   }
