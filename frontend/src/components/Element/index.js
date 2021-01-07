@@ -40,6 +40,13 @@ class Element extends Component {
     if (Object.keys(element).length === 0) {
       return (<h1>Sin Resultados para mostrar</h1>)
     }
+    let value = 'sin data'
+    if (element.value) {
+      value = element.value
+    } else if (element.values) {
+      const [first] = Object.values(element.values)
+      value = first
+    }
     return (
       <ElementContainer>
         <Title>
@@ -49,7 +56,7 @@ class Element extends Component {
           Unidad de medición: {element.unit}
         </SubTitle>
         <SubTitle>
-          valor: {element.value}
+          valor: {value}
         </SubTitle>
       </ElementContainer>
     )
