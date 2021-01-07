@@ -31,11 +31,14 @@ class CustomCalendar extends Component {
 
   render() {
     const {date} = this.state
+    var startingDate = new Date()
+    startingDate.setDate(startingDate.getDate() - 1)
     return (
       <div style={{marginBottom: '10px', marginRight: '5px'}}>
         <Calendar
           onChange={this.onChangeHAndler}
           value={date}
+          maxDate={startingDate}
         />
       </div>
     )
